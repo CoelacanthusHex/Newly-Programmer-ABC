@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>一些常用 Shell 命令 - 程序员入门指南</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../preface.html">序言</a></li><li class="chapter-item expanded "><a href="../beginning/index.html"><strong aria-hidden="true">1.</strong> 准备篇</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../beginning/what-are-computers.html"><strong aria-hidden="true">1.1.</strong> 什么是计算机</a></li><li class="chapter-item expanded "><a href="../beginning/buying-a-computer.html"><strong aria-hidden="true">1.2.</strong> 购买一台计算机</a></li></ol></li><li class="chapter-item expanded "><a href="../know-your-computer/index.html"><strong aria-hidden="true">2.</strong> 认识自己的计算机</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../know-your-computer/use-electronic-products.html"><strong aria-hidden="true">2.1.</strong> 使用电子产品</a></li><li class="chapter-item expanded "><a href="../know-your-computer/interface-and-protocol.html"><strong aria-hidden="true">2.2.</strong> 常见的接口、协议</a></li></ol></li><li class="chapter-item expanded "><a href="../use-your-computer/index.html"><strong aria-hidden="true">3.</strong> 使用自己的计算机</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../use-your-computer/files-and-directories.html"><strong aria-hidden="true">3.1.</strong> 目录、文件、文件系统</a></li><li class="chapter-item expanded "><a href="../use-your-computer/file-format.html"><strong aria-hidden="true">3.2.</strong> 文件格式</a></li><li class="chapter-item expanded "><a href="../use-your-computer/organize-your-files.html"><strong aria-hidden="true">3.3.</strong> 整理自己的文件</a></li><li class="chapter-item expanded "><a href="../use-your-computer/interact-with-pc.html"><strong aria-hidden="true">3.4.</strong> 与计算机交互</a></li><li class="chapter-item expanded "><a href="../use-your-computer/markup-lang-and-rich-text.html"><strong aria-hidden="true">3.5.</strong> 标记语言和富文本</a></li><li class="chapter-item expanded "><a href="../use-your-computer/internet.html"><strong aria-hidden="true">3.6.</strong> 互联网</a></li><li class="chapter-item expanded "><a href="../use-your-computer/connect-to-network.html"><strong aria-hidden="true">3.7.</strong> 如何连接到网络</a></li><li class="chapter-item expanded "><a href="../use-your-computer/browsing-internet.html"><strong aria-hidden="true">3.8.</strong> 访问互联网上的内容</a></li><li class="chapter-item expanded "><a href="../use-your-computer/acquire-and-install-apps.html"><strong aria-hidden="true">3.9.</strong> 获取、安装应用程序</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 网上冲浪</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web-surfing/learn-english.html"><strong aria-hidden="true">4.1.</strong> 掌握一门外语——英语</a></li></ol></li><li class="chapter-item expanded "><a href="../begin-programming/index.html"><strong aria-hidden="true">5.</strong> 编程入门</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../begin-programming/what-is-programming.html"><strong aria-hidden="true">5.1.</strong> 什么是编程</a></li><li class="chapter-item expanded "><a href="../command-line/cli-and-shell.html"><strong aria-hidden="true">5.2.</strong> 命令行与 Shell 程序</a></li><li class="chapter-item expanded "><a href="../command-line/common-commands.html" class="active"><strong aria-hidden="true">5.3.</strong> 一些常用 Shell 命令</a></li><li class="chapter-item expanded "><a href="../begin-programming/ds-algo-intro.html"><strong aria-hidden="true">5.4.</strong> 数据结构与算法入门</a></li><li class="chapter-item expanded "><a href="../begin-programming/read-cpp.html"><strong aria-hidden="true">5.5.</strong> 看懂 C/C++ 代码</a></li><li class="chapter-item expanded "><a href="../begin-programming/first-cpp-program.html"><strong aria-hidden="true">5.6.</strong> 编译运行第一个 C/C++ 程序</a></li><li class="chapter-item expanded "><a href="../begin-programming/software-build.html"><strong aria-hidden="true">5.7.</strong> 什么是构建</a></li><li class="chapter-item expanded "><a href="../begin-programming/coding-practice.html"><strong aria-hidden="true">5.8.</strong> 代码规范</a></li></ol></li><li class="chapter-item expanded "><a href="../virtual-machine/index.html"><strong aria-hidden="true">6.</strong> 使用虚拟机</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../virtual-machine/try-ubuntu-on-windows.html"><strong aria-hidden="true">6.1.</strong> 在 Windows 上的虚拟机中安装 Ubuntu</a></li></ol></li><li class="chapter-item expanded "><a href="../command-line/index.html"><strong aria-hidden="true">7.</strong> 命令行使用</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../command-line/common-cli-tools.html"><strong aria-hidden="true">7.1.</strong> 一些常用命令行工具</a></li><li class="chapter-item expanded "><a href="../command-line/setup-an-environment.html"><strong aria-hidden="true">7.2.</strong> 建立一个命令行工作环境</a></li></ol></li><li class="chapter-item expanded "><a href="../code-sharing/index.html"><strong aria-hidden="true">8.</strong> 代码的分享、管理与协作</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../code-sharing/where-it-all-began.html"><strong aria-hidden="true">8.1.</strong> 从代码分享说起</a></li><li class="chapter-item expanded "><a href="../code-sharing/code-hosting-platform-and-vcs.html"><strong aria-hidden="true">8.2.</strong> 代码托管平台与版本控制系统</a></li></ol></li><li class="chapter-item expanded "><a href="../cpp/index.html"><strong aria-hidden="true">9.</strong> 编程语言：C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cpp/cpp-coding-practice.html"><strong aria-hidden="true">9.1.</strong> C/C++ 代码规范</a></li><li class="chapter-item expanded "><a href="../cpp/compile-and-link.html"><strong aria-hidden="true">9.2.</strong> 编译、链接</a></li><li class="chapter-item expanded "><a href="../cpp/multi-files-programming.html"><strong aria-hidden="true">9.3.</strong> C/C++ 多文件编程</a></li><li class="chapter-item expanded "><a href="../cpp/cmake-intro.html"><strong aria-hidden="true">9.4.</strong> CMake 入门</a></li><li class="chapter-item expanded "><a href="../cpp/lambda-expression.html"><strong aria-hidden="true">9.5.</strong> C++ Lambda 表达式</a></li><li class="chapter-item expanded "><a href="../cpp/wrap-algorithm-with-class.html"><strong aria-hidden="true">9.6.</strong> 用类包装算法</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">程序员入门指南</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        <a href="https://github.com/tsagaanbar/Newly-Programmer-ABC" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                                                
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="常用命令"><a class="header" href="#常用命令">常用命令</a></h1>
+<p>开始这篇内容之前，读者需要：</p>
+<ul>
+<li>了解终端、Shell、CLI 等；</li>
+<li>理解文件和目录的概念；</li>
+</ul>
+<h2 id="控制程序运行的命令行参数的一个惯例"><a class="header" href="#控制程序运行的命令行参数的一个惯例">控制程序运行的命令行参数的一个惯例</a></h2>
+<p>观察下面这两条命令：</p>
+<pre><code class="language-sh">gcc test1.c -o test1
+apt list --upgradable
+</code></pre>
+<p>这里的“<code>list</code>”“<code>--upgradable</code>”都是传递给“<code>apt</code>”程序的参数；更进一步讲，带有横线的“<code>--upgradable</code>”是用来修饰“<code>list</code>”命令的。</p>
+<p>另外，第一条命令中的“<code>-o</code>”和下一条命令的“<code>--upgradable</code>”，前者前边有<strong>一根短横线</strong>（连字符），后边只跟了<strong>一个字母</strong>（通常可能为某单词的首字母）；后者前边有<strong>两根短横线</strong>，其后的则是一个<strong>完整的单词</strong>。这是命令行参数的一个惯例。</p>
+<p>再如下面这个命令里，“<code>-Syu</code>”中的“<code>S</code>”“<code>y</code>”“<code>u</code>”各有含义，且小写的“<code>y</code>”“<code>u</code>”为修饰“<code>S</code>”命令的参数。</p>
+<pre><code class="language-bash">pacman -Syu
+</code></pre>
+<p>下面这个命令里的“<code>cvf</code>”也是类似的道理，三个字母分别指明了操作的三个属性。</p>
+<pre><code class="language-bash">jar cvf app1.jar app1
+</code></pre>
+<h2 id="实用技巧"><a class="header" href="#实用技巧">实用技巧</a></h2>
+<p>1. 自动补全</p>
+<p>在敲出 文件／目录／命令 的前几个字母之后，按下 <code>Tab</code> 键，如果输入的没有歧义，系统会自动补全。</p>
+<p>如果还存在其他 文件／目录／命令，再按一下 <code>Tab</code> 键，系统会提示可能存在的命令</p>
+<p>2. 曾经使用过的命令</p>
+<p>按键盘上的 上／下 方向键，可以在曾经使用过的命令之间切换。</p>
+<h2 id="linux-基本命令"><a class="header" href="#linux-基本命令">Linux 基本命令</a></h2>
+<p>这里只介绍简单的几个命令，更详细的需要读者自行查找资料。</p>
+<ul>
+<li>查看目录内容 <code>ls</code></li>
+<li>切换目录 <code>cd</code></li>
+<li>创建和删除操作 <code>touch</code>、<code>rm</code>、<code>mkdir</code></li>
+<li>拷贝和移动文件 <code>cp</code>、<code>mv</code></li>
+</ul>
+<h3 id="ls列出目录的内容"><a class="header" href="#ls列出目录的内容">ls：列出目录的内容</a></h3>
+<p><code>ls</code> 是英文单词 list 的简写，其功能为列出目录的内容，是用户最常用的命令之一，类似于 DOS 下的 <code>dir</code> 命令</p>
+<table><thead><tr><th>参数</th><th>含义</th></tr></thead><tbody>
+<tr><td>-a</td><td>显示指定目录下所有子目录与文件，包括隐藏文件</td></tr>
+<tr><td>-l</td><td>以列表方式显示文件的详细信息</td></tr>
+<tr><td>-h</td><td>配合 -l 以人性化的方式显示文件大小</td></tr>
+</tbody></table>
+<p>Linux / Unix 操作系统下，以“<code>.</code>”开头的文件为隐藏文件，需要用 <code>-a</code> 参数才能显示</p>
+<pre><code class="language-bash">$ ls -a      # 显示目录下的所有文件/目录
+$ ls -a -l   # 以列表方式显示目录下的所有文件/目录的详细信息
+</code></pre>
+<h3 id="cd切换目录"><a class="header" href="#cd切换目录">cd：切换目录</a></h3>
+<p><code>cd</code> 是英文单词 change directory 的简写，其功能为更改当前的工作目录，也是用户最常用的命令之一。</p>
+<blockquote>
+<p><code>.</code>  代表当前目录，<code>..</code> 代表上一级目录，<code>~</code> 代表用户的家目录</p>
+</blockquote>
+<p>注意：Linux 所有的 <strong>目录</strong> 和 <strong>文件名</strong> 都是大小写敏感的</p>
+<pre><code class="language-bash">$ cd ..      # 切换到上级目录
+</code></pre>
+<table><thead><tr><th>命令</th><th>含义</th></tr></thead><tbody>
+<tr><td><code>cd ~</code></td><td>切换到当前用户的主目录（家目录，亦即<code>/home/用户名</code>）</td></tr>
+<tr><td><code>cd .</code></td><td>保持在当前目录不变</td></tr>
+<tr><td><code>cd ..</code></td><td>切换到上级目录</td></tr>
+<tr><td><code>cd -</code></td><td>可以在最近两次工作目录之间来回切换</td></tr>
+</tbody></table>
+<p><strong>相对路径和绝对路径</strong></p>
+<p>相对路径：在输入路径时，最前面<strong>不是</strong> <code>/</code> 或者 <code>~</code>，表示相对 当前目录 所在的目录位置
+绝对路径：在输入路径时，最前面<strong>是</strong> <code>/</code> 或者 <code>~</code>，表示从 根目录 / 家目录 开始的具体目录位置</p>
+<h3 id="pwd查看当前目录"><a class="header" href="#pwd查看当前目录">pwd：查看当前目录</a></h3>
+<p>直接在终端中执行 <code>pwd</code>，即可获得当前目录的路径。</p>
+<pre><code class="language-bash">pwd
+</code></pre>
+<h3 id="使用输出重定向创建文件"><a class="header" href="#使用输出重定向创建文件">使用输出重定向创建文件</a></h3>
+<p>我们可以用<strong>输出重定向</strong>的方式新建一个文件。</p>
+<pre><code class="language-bash">echo &quot;&quot; &gt; hello.txt 
+</code></pre>
+<p>上述的命令将会输出空内容到“hello.txt”文件，如果文件不存在，则将会创建一个新文件；如果文件已存在，则将覆盖掉文件原有的内容。</p>
+<h3 id="mkdir创建一个新的目录"><a class="header" href="#mkdir创建一个新的目录">mkdir：创建一个新的目录</a></h3>
+<blockquote>
+<p>新建目录的名称不能与当前目录中<strong>已有的目录或文件</strong>同名</p>
+</blockquote>
+<pre><code class="language-bash">$ mkdir workspace
+$ cd workspace
+$ cd ..
+</code></pre>
+<h3 id="rm删除文件或目录"><a class="header" href="#rm删除文件或目录">rm：删除文件或目录</a></h3>
+<blockquote>
+<p>使用 rm 命令要小心，因为文件删除后不能恢复</p>
+</blockquote>
+<table><thead><tr><th>选项</th><th>含义</th></tr></thead><tbody>
+<tr><td><code>-f</code></td><td>强制删除，忽略不存在的文件，无需提示</td></tr>
+<tr><td><code>-r</code></td><td>递归地删除目录下的内容，<strong>删除目录</strong> 时必须加此参数</td></tr>
+<tr><td><code>-v</code></td><td>可以显示出该命令具体执行了哪些操作</td></tr>
+</tbody></table>
+<h3 id="拷贝和移动文件"><a class="header" href="#拷贝和移动文件">拷贝和移动文件</a></h3>
+<table><thead><tr><th>命令</th><th>对应英文</th><th>作用</th></tr></thead><tbody>
+<tr><td><code>cp 源文件 目标文件</code></td><td>copy</td><td>复制文件或者目录</td></tr>
+<tr><td><code>mv 源文件 目标文件</code></td><td>move</td><td>移动文件或者目录／文件或者目录重命名</td></tr>
+</tbody></table>
+<p>参考链接：<a href="https://www.cnblogs.com/zkpythonstudy/p/9960512.html">文件和目录常用命令 - davidabdy - 博客园 (cnblogs.com)</a></p>
+<h2 id="powershell"><a class="header" href="#powershell">PowerShell</a></h2>
+<p>上述提到的命令，在 PowerShell 中也是基本适用的。</p>
+<h2 id="相关内容"><a class="header" href="#相关内容">相关内容</a></h2>
+<ul>
+<li>
+<p><a href="https://doc.yonyoucloud.com/doc/Advanced-Bash-Scripting-Guide-in-Chinese/index.html">《Advanced Bash-Scripting Guide (高级Bash脚本编程指南)》中文版</a>：链接中有原文地址，也有项目的Github地址</p>
+</li>
+<li>
+<p>https://www.landiannews.com/archives/tag/VMWare</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../command-line/cli-and-shell.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../begin-programming/ds-algo-intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../command-line/cli-and-shell.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../begin-programming/ds-algo-intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

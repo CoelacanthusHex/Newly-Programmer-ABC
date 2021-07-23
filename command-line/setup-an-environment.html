@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>建立一个命令行工作环境 - 程序员入门指南</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../preface.html">序言</a></li><li class="chapter-item expanded "><a href="../beginning/index.html"><strong aria-hidden="true">1.</strong> 准备篇</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../beginning/what-are-computers.html"><strong aria-hidden="true">1.1.</strong> 什么是计算机</a></li><li class="chapter-item expanded "><a href="../beginning/buying-a-computer.html"><strong aria-hidden="true">1.2.</strong> 购买一台计算机</a></li></ol></li><li class="chapter-item expanded "><a href="../know-your-computer/index.html"><strong aria-hidden="true">2.</strong> 认识自己的计算机</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../know-your-computer/use-electronic-products.html"><strong aria-hidden="true">2.1.</strong> 使用电子产品</a></li><li class="chapter-item expanded "><a href="../know-your-computer/interface-and-protocol.html"><strong aria-hidden="true">2.2.</strong> 常见的接口、协议</a></li></ol></li><li class="chapter-item expanded "><a href="../use-your-computer/index.html"><strong aria-hidden="true">3.</strong> 使用自己的计算机</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../use-your-computer/files-and-directories.html"><strong aria-hidden="true">3.1.</strong> 目录、文件、文件系统</a></li><li class="chapter-item expanded "><a href="../use-your-computer/file-format.html"><strong aria-hidden="true">3.2.</strong> 文件格式</a></li><li class="chapter-item expanded "><a href="../use-your-computer/organize-your-files.html"><strong aria-hidden="true">3.3.</strong> 整理自己的文件</a></li><li class="chapter-item expanded "><a href="../use-your-computer/interact-with-pc.html"><strong aria-hidden="true">3.4.</strong> 与计算机交互</a></li><li class="chapter-item expanded "><a href="../use-your-computer/markup-lang-and-rich-text.html"><strong aria-hidden="true">3.5.</strong> 标记语言和富文本</a></li><li class="chapter-item expanded "><a href="../use-your-computer/internet.html"><strong aria-hidden="true">3.6.</strong> 互联网</a></li><li class="chapter-item expanded "><a href="../use-your-computer/connect-to-network.html"><strong aria-hidden="true">3.7.</strong> 如何连接到网络</a></li><li class="chapter-item expanded "><a href="../use-your-computer/browsing-internet.html"><strong aria-hidden="true">3.8.</strong> 访问互联网上的内容</a></li><li class="chapter-item expanded "><a href="../use-your-computer/acquire-and-install-apps.html"><strong aria-hidden="true">3.9.</strong> 获取、安装应用程序</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 网上冲浪</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web-surfing/learn-english.html"><strong aria-hidden="true">4.1.</strong> 掌握一门外语——英语</a></li></ol></li><li class="chapter-item expanded "><a href="../begin-programming/index.html"><strong aria-hidden="true">5.</strong> 编程入门</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../begin-programming/what-is-programming.html"><strong aria-hidden="true">5.1.</strong> 什么是编程</a></li><li class="chapter-item expanded "><a href="../command-line/cli-and-shell.html"><strong aria-hidden="true">5.2.</strong> 命令行与 Shell 程序</a></li><li class="chapter-item expanded "><a href="../command-line/common-commands.html"><strong aria-hidden="true">5.3.</strong> 一些常用 Shell 命令</a></li><li class="chapter-item expanded "><a href="../begin-programming/ds-algo-intro.html"><strong aria-hidden="true">5.4.</strong> 数据结构与算法入门</a></li><li class="chapter-item expanded "><a href="../begin-programming/read-cpp.html"><strong aria-hidden="true">5.5.</strong> 看懂 C/C++ 代码</a></li><li class="chapter-item expanded "><a href="../begin-programming/first-cpp-program.html"><strong aria-hidden="true">5.6.</strong> 编译运行第一个 C/C++ 程序</a></li><li class="chapter-item expanded "><a href="../begin-programming/software-build.html"><strong aria-hidden="true">5.7.</strong> 什么是构建</a></li><li class="chapter-item expanded "><a href="../begin-programming/coding-practice.html"><strong aria-hidden="true">5.8.</strong> 代码规范</a></li></ol></li><li class="chapter-item expanded "><a href="../virtual-machine/index.html"><strong aria-hidden="true">6.</strong> 使用虚拟机</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../virtual-machine/try-ubuntu-on-windows.html"><strong aria-hidden="true">6.1.</strong> 在 Windows 上的虚拟机中安装 Ubuntu</a></li></ol></li><li class="chapter-item expanded "><a href="../command-line/index.html"><strong aria-hidden="true">7.</strong> 命令行使用</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../command-line/common-cli-tools.html"><strong aria-hidden="true">7.1.</strong> 一些常用命令行工具</a></li><li class="chapter-item expanded "><a href="../command-line/setup-an-environment.html" class="active"><strong aria-hidden="true">7.2.</strong> 建立一个命令行工作环境</a></li></ol></li><li class="chapter-item expanded "><a href="../code-sharing/index.html"><strong aria-hidden="true">8.</strong> 代码的分享、管理与协作</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../code-sharing/where-it-all-began.html"><strong aria-hidden="true">8.1.</strong> 从代码分享说起</a></li><li class="chapter-item expanded "><a href="../code-sharing/code-hosting-platform-and-vcs.html"><strong aria-hidden="true">8.2.</strong> 代码托管平台与版本控制系统</a></li></ol></li><li class="chapter-item expanded "><a href="../cpp/index.html"><strong aria-hidden="true">9.</strong> 编程语言：C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cpp/cpp-coding-practice.html"><strong aria-hidden="true">9.1.</strong> C/C++ 代码规范</a></li><li class="chapter-item expanded "><a href="../cpp/compile-and-link.html"><strong aria-hidden="true">9.2.</strong> 编译、链接</a></li><li class="chapter-item expanded "><a href="../cpp/multi-files-programming.html"><strong aria-hidden="true">9.3.</strong> C/C++ 多文件编程</a></li><li class="chapter-item expanded "><a href="../cpp/cmake-intro.html"><strong aria-hidden="true">9.4.</strong> CMake 入门</a></li><li class="chapter-item expanded "><a href="../cpp/lambda-expression.html"><strong aria-hidden="true">9.5.</strong> C++ Lambda 表达式</a></li><li class="chapter-item expanded "><a href="../cpp/wrap-algorithm-with-class.html"><strong aria-hidden="true">9.6.</strong> 用类包装算法</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">程序员入门指南</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        <a href="https://github.com/tsagaanbar/Newly-Programmer-ABC" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                                                
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="建立一个命令行工作环境"><a class="header" href="#建立一个命令行工作环境">建立一个命令行工作环境</a></h1>
+<p>开始这部分前，读者需要了解：</p>
+<ul>
+<li>Windows 下软件的安装</li>
+<li>命令行入门基础、常见的命令行工具</li>
+<li>了解“环境变量”的概念</li>
+</ul>
+<p>一般所谓的命令行工作环境，包含终端 + Shell（提供基础操作，如文件创建、网络通信），C/C++ 编译器（用来构建其他很多软件的必要程序），包管理器以及其他形形色色的工具等。</p>
+<h2 id="配置包管理器"><a class="header" href="#配置包管理器">配置包管理器</a></h2>
+<p>操作系统一般都提供命令行操作的界面，支持一些实用 Shell 命令以及一些常用的命令行工具。</p>
+<p>Linux 发行版一般会自带有相应的包管理器，如 apt、pacman 等。但是像 Windows、macOS 等操作系统并不具有包管理器，通常需要用户手动安装包管理器。</p>
+<p>通常，包管理器会提供一个 Shell 脚本，用户只需要下载并执行这个脚本即可完成包管理器的安装。这个脚本所执行的配置过程一般包含“下载程序”和“将程序添加到环境变量”两个步骤。</p>
+<blockquote>
+<p>实际上，由于互联网环境的复杂性，这个过程通常并不流畅，可能需要用户修改脚本中的内容，以便更好的执行程序的下载等任务。</p>
+</blockquote>
+<p>包管理器的提供方也有可能提供一个安装器，用户只需要在图形界面中进行少许操作即可完成安装。当然，也有可能需要用户手动将包管理器可执行文件所在的位置添加进环境变量。</p>
+<p>至于采取何种方式，需要根据软件的说明来决定。</p>
+<p>我们会接触到很多包管理器，它们之间有一定的区别。通常来讲，一种是我们系统（或者环境）层面上的包管理器，这些包管理器通常安装的是实用程序，也负责解决这些程序、库之间的依赖问题，且通常安装的是事先构建好（pre-built）的软件；也有专门针对某种语言开发环境所使用的包管理器，这时所指的包一般指我们写程序所用到的程序库、SDK 等。</p>
+<p>针对日常软件的安装，Windows 上可用的包管理器有 Chocolatey；macOS 上常用 Homebrew。这些包管理器有时候也能替我们安装一些开发用的软件或库。</p>
+<p>至于专门用于软件开发的包管理器，针对 C++ 的有 vcpkg；针对 Python，有 pip；针对 Java，可以使用 maven 等。这些包管理器，可以帮助我们方便的安装和管理构建（build）程序所需的依赖（dependency）。</p>
+<h3 id="ubuntu-的包管理器-apt"><a class="header" href="#ubuntu-的包管理器-apt">Ubuntu 的包管理器 apt</a></h3>
+<p>常用的 <code>apt</code> 命令主要有 <code>update</code>、<code>install</code> 和 <code>upgrade</code>。使用这些命令，一般需要管理员权限。</p>
+<pre><code class="language-bash">sudo apt update      # 刷新本地的软件包信息，计算哪些软件包可以更新
+sudo apt install gcc # 安装名为“gcc”的包
+sudo apt upgrade     # 升级有更新的包
+</code></pre>
+<p>“本地的软件包信息”相当于从软件源下载到本地的一份索引，其中记录了软件源提供的软件包的版本和<strong>依赖关系</strong>等信息。只有更新了软件源缓存信息，才能知道是否有更新的软件包可以更新；同理，<strong>添加了新的软件源后，也需要执行这个操作</strong>，以获得到新添加的软件源上的信息，这样在执行 <code>install</code> 命令时，才能够搜索到需要的包。</p>
+<p>存放包的远程的服务器通常称作“软件仓库”。</p>
+<h3 id="pacman"><a class="header" href="#pacman">pacman</a></h3>
+<p>pacman 也是一款包管理器，为 Arch 系的 Linux 的默认包管理器。</p>
+<p>关于 pacman 的使用暂时不作过多介绍。</p>
+<h2 id="配置工作环境"><a class="header" href="#配置工作环境">配置工作环境</a></h2>
+<h3 id="1-windows"><a class="header" href="#1-windows">1. Windows</a></h3>
+<p>Windows 已经带有 Win32 控制台和 PowerShell 环境，其实是具有基础的命令行工作的环境的。</p>
+<p>除此之外，我们可以再选择使用一些包管理器管理自己的软件包。</p>
+<p>要打造开发环境，我们还需要 C/C++ 编译器。可以选择安装“MSVC 生成工具”，这会带来 MSVC 编译器等工具。当然，也可以选择直接安装 <a href="https://visualstudio.microsoft.com/">Visual Studio</a>，不过这是一个完整的 IDE，其体量比较庞大。</p>
+<h3 id="2-在-windows-上体验类-unix-环境"><a class="header" href="#2-在-windows-上体验类-unix-环境">2. 在 Windows 上体验类 Unix 环境</a></h3>
+<p>macOS 以及诸多 Linux 的发行版的命令行工作环境是类似的（默认都为 bash，也可选择 zsh，其使用也与 bash类似）。两者之间有着类似的工具，命令几乎可以通用。而 Windows 的 PowerShell 命令则别出一格，很多功能、操作的实现所用的命令并不相同。</p>
+<p>如果有必要，我们可以选择再在 Windows 上搭建一个类 Unix 的环境。常用的有安装虚拟机（在虚拟机上运行类 Unix 系统）、使用 MSYS2、使用 WSL（Windows Linux 子系统）等。</p>
+<h4 id="概念介绍工具链"><a class="header" href="#概念介绍工具链">概念介绍：工具链</a></h4>
+<p>我们先来介绍一下工具链（Toolchains）的概念。顾名思义，其意为一套“连锁”的工具，通常包含构建所需的编译器，以及用于安装软件库的包管理器等等。</p>
+<p>比如在 Ubuntu 上，我们通常使用 GNU GCC 作为编译器，使用 APT 作为包管理。在 macOS 上，我们使用 Apple-Clang 编译器，并可以选择 Homebrew 作为包管理器。在 Windows 上，我们可以使用 MSVC 作为编译器，使用 vcpkg 管理包（也可以手动管理各种软件包）；也可以安装 MSYS2，使用 MinGW gcc 作为编译器，使用其携带的包管理器 pacman 管理软件包；也可以使用 WSL 上的环境（Linux 环境）进行开发。</p>
+<h4 id="法一安装虚拟机"><a class="header" href="#法一安装虚拟机">法一：安装虚拟机</a></h4>
+<p>安装虚拟机可以体验最接近真实的 Linux 发行版体验。其问题主要在于联动性和效率上。</p>
+<h4 id="法二msys2"><a class="header" href="#法二msys2">法二：MSYS2</a></h4>
+<p>如果条件不足以安装虚拟机、或者不希望使用虚拟机，我们可以选择安装模拟类 Unix 系统的操作的软件。有很多种方式，这里我们介绍 MSYS2 的使用。</p>
+<p>MSYS2 安装后有三个环境，“MSYS2 MSYS”、“MSYS2 MinGW 64-bit”、“MSYS2 MinGW 32-bit”。我们常用的是“MSYS2 MinGW 64-bit”环境。</p>
+<blockquote>
+<p>这里需要提一下 MinGW gcc，我们可以简单地将其理解为 Windows 上可用的（原生的） gcc 编译器。</p>
+</blockquote>
+<p>MSYS2 为我们提供了类似 Linux 发行版的操作环境。在 MSYS2 的安装目录下有一个“home”目录，这个目录就是我们 MSYS2 环境中的家目录。MSYS2 环境中，Windows 下的各盘符被挂载在根目录下对应的目录上，比如“C盘”被挂载在“<code>/c/</code>”下，“D盘”被挂载在“<code>/d/</code>”下。</p>
+<p>在“MSYS2 MinGW 64-bit”环境中，C/C++ 编译器为“MinGW gcc 64-bit”，其可以生成 Windows 平台下原生的可执行文件（exe）。其包管理器安装的软件也是由 MinGW gcc 构建的软件。我们把这一整套称为“MSYS2 MinGW 64-bit”工具链。</p>
+<blockquote>
+<p>我们也可以不使用 MSYS2，只安装 MinGW gcc 作为编译器，并手动安装其他需要的工具和包。</p>
+</blockquote>
+<h3 id="3-ubuntu"><a class="header" href="#3-ubuntu">3. Ubuntu</a></h3>
+<p>Ubuntu 默认没有安装编译器，我们可以通过包管理器安装所需的软件工具等。</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install build-essential
+sudo apt install cmake
+</code></pre>
+<h3 id="4-macos"><a class="header" href="#4-macos">4. macOS</a></h3>
+<p>首先，我们要安装一些基础的命令行工具。Xcode 是 Apple 的开发工具，我们可以选择只安装命令行工具。</p>
+<pre><code class="language-bash">xcode-select --install
+</code></pre>
+<p>键入以上命令后，macOS 会开始安装 Xcode 命令行工具，其中包括我们需要的编译器（Apple-Clang）。</p>
+<p>macOS 默认没有包管理器。安装完成后，我们可以选择安装包管理器——Homebrew。具体安装步骤和使用这里不再赘述。</p>
+<blockquote>
+<p>当然，选择安装 Xcode，也会安装 Xcode 命令行工具。但是作为一个完备的 IDE， Xcode 会十分庞大。</p>
+</blockquote>
+<h3 id="5-代码编辑器"><a class="header" href="#5-代码编辑器">5. 代码编辑器</a></h3>
+<p>常用的代码编辑器可以使用 <a href="code.visualstudio.com">Visual Studio Code</a>，其跨平台可用，且免费开源；虽然只是编辑器，但有海量插件可以实现各种自动化的操作，某种程度上可以当成 IDE 使用。</p>
+<p>可以说，不管在哪个平台上，VSCode 都是非常厉害好用的。不过在使用 C++ 的代码智能感知插件时要记得清理缓存，默认的上限是 5 GB，可以修改。</p>
+<h3 id="6-集成开发环境"><a class="header" href="#6-集成开发环境">6. 集成开发环境</a></h3>
+<p>集成开发环境（IDE）是包含了代码编辑、调试、协作等诸多功能的软件。除了我们刚刚提到的 Xcode 和 Visual Studio 等，也有 JetBrains 系的 IDE，如 CLion、PyCharm 等。不同于前两者，JetBrains 系的 IDE 一般不会附带安装构建需要的工具。这时就需要使用我们之前配置的编译工具链，有时也称为“外部生成工具”。</p>
+<p>JetBrains 系的 IDE 也是跨平台的，社区版免费；同时提供学生优惠，即用教育邮箱（或其他方式）认证后可以使用专业版。其产品包括开发 C/C++ 项目用的 CLion ，也有编写 Python 的 PyCharm。</p>
+<p><a href="https://www.zhihu.com/question/25259569">如何评价 JetBrains 的新 C/C++ IDE CLion？</a></p>
+<p>如今，Visual Studio 提供免费的社区版，而商业版本需要收费。Visual Studio 在使用过程中可能会在项目文件夹下产生很大的缓存，使用时需要注意。</p>
+<p>现代 IDE 基本都有<strong>代码补全</strong>、<strong>语法检查</strong>等功能。为什么强调这些功能呢？比如代码补全功能不需要编程者记录确切的函数名，只需要几次击键就可以联想出函数名，可以提高编程效率，同时也能降低错误率。而语法检查则能让编程者及时发现错误，同样能够提高效率。</p>
+<h3 id="7-类-unix-环境的好处"><a class="header" href="#7-类-unix-环境的好处">7. 类 Unix 环境的好处</a></h3>
+<p>类 Unix 环境下开发，能够方便的找到标头文件（C++），而使用包管理器，也给我们软件的安装带来很多便利，对于常见依赖问题的解决比较方便。</p>
+<p>在 Windows 上使用如 MSYS2 这样的环境便是出于这样的考虑。但是模拟的环境毕竟不如原生，而且 Visual Studio 也推出了自己的 vcpkg 包管理器，并且也支持 CMake 管理 C/C++ 项目，寻找依赖也很方便。</p>
+<p>扩展阅读：</p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/39952667">MinGW、MinGW-w64 与 TDM-GCC 应该如何选择？ - 知乎</a></p>
+<p><a href="https://www.zhihu.com/question/41733001">如果仅考虑 Windows 平台，不用 msvc 而去用 gcc 的理由有哪些？ - 知乎</a></p>
+<p><a href="https://www.zhihu.com/question/331375227">Qt 用 MSVC 和 MinGW 哪个编译器编译程序比较好？ - 知乎</a></p>
+<p><a href="https://www.zhihu.com/question/313334589">怎么安装 mingw 离线包？ - 知乎</a></p>
+<p><a href="https://www.zhihu.com/question/37025275">如何评价 MSYS2 以及未来发展方向如何？</a></p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../command-line/common-cli-tools.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../code-sharing/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../command-line/common-cli-tools.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../code-sharing/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
