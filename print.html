@@ -1815,19 +1815,30 @@ int main(int argc, char* argv[]) {
 <li>了解终端、Shell、CLI 等；</li>
 <li>理解文件和目录的概念；</li>
 </ul>
-<h2 id="控制程序运行的命令行参数的一个惯例"><a class="header" href="#控制程序运行的命令行参数的一个惯例">控制程序运行的命令行参数的一个惯例</a></h2>
-<p>观察下面这两条命令：</p>
-<pre><code class="language-sh">gcc test1.c -o test1
+<h2 id="命令行选项的惯例"><a class="header" href="#命令行选项的惯例">命令行选项的惯例</a></h2>
+<p>观察下面的命令：</p>
+<pre><code class="language-bash">gcc test1.c -o test1
 apt list --upgradable
 </code></pre>
-<p>这里的“<code>list</code>”“<code>--upgradable</code>”都是传递给“<code>apt</code>”程序的参数；更进一步讲，带有横线的“<code>--upgradable</code>”是用来修饰“<code>list</code>”命令的。</p>
-<p>另外，第一条命令中的“<code>-o</code>”和下一条命令的“<code>--upgradable</code>”，前者前边有<strong>一根短横线</strong>（连字符），后边只跟了<strong>一个字母</strong>（通常可能为某单词的首字母）；后者前边有<strong>两根短横线</strong>，其后的则是一个<strong>完整的单词</strong>。这是命令行参数的一个惯例。</p>
-<p>再如下面这个命令里，“<code>-Syu</code>”中的“<code>S</code>”“<code>y</code>”“<code>u</code>”各有含义，且小写的“<code>y</code>”“<code>u</code>”为修饰“<code>S</code>”命令的参数。</p>
+<p>这里的“<code>list</code>”“<code>--upgradable</code>”都是传递给“<code>apt</code>”程序的参数；或者说，“<code>--upgradable</code>”是用来修饰“<code>list</code>”命令的<strong>命令行选项</strong>。</p>
+<p>形如“<code>-o</code>”这样的命令行选项被称为“短选项（short option）”，更长的则为“长选项”，而形如“<code>--option</code>”这样以两个连字符为前缀的完整单词则是 GNU 规范中的长选项格式。</p>
+<p>如今，很多软件遵从 GNU 规范的风格设计命令行参数，但这并不能说明其是一个硬性的要求。</p>
 <pre><code class="language-bash">pacman -Syu
+jar cvf app1.jar app1
 </code></pre>
-<p>下面这个命令里的“<code>cvf</code>”也是类似的道理，三个字母分别指明了操作的三个属性。</p>
-<pre><code class="language-bash">jar cvf app1.jar app1
+<p>比如，也有些软件会采用如同“<code>-Syu</code>”这样的格式，“<code>S</code>”“<code>y</code>”“<code>u</code>”三个字母各有含义。而像“<code>cvf</code>”这种没有任何前缀字符的命令行选项格式，由于历史原因，至今也仍在使用。</p>
+<p>此外，“sub-command”的情况也比较常见：</p>
+<pre><code>git commit -m &quot;message&quot;
 </code></pre>
+<p>总的来说，不同命令行选项的格式都是历史上探寻最佳设计过程中的产物。请读者阅读 <a href="http://catb.org/%7Eesr/writings/taoup/html/ch10s05.html">Command-Line Options (catb.org)</a> 以获得更详细的介绍：</p>
+<p>Unix 传统鼓励使用命令行参数来控制程序的运行，因为这样可以方便的通过脚本来控制应用程序</p>
+<p>根据最初的 Unix 传统，命令行选项是以短横线为前缀的<strong>关键字母</strong>，如“<code>-a</code>”“<code>-b</code>”。如果该命令行选项有参数，则在其后注明，比如“<code>-a 10</code>”。对于没有参数的命令行选项，可以将其合并在一起，比如“<code>-ab</code>”或者“<code>-ba</code>”。</p>
+<p>由于单字母的选项用尽了，GNU 风格开始使用以两个连字符为前缀的<strong>关键词</strong>。命令行选项和其参数之间可以以空格或等号“<code>=</code>”间隔，如“<code>--lines=10</code>”。这种方法很流行，因为阅读起来更为清晰，并且能和之前的单字母无歧义地组合在一起。</p>
+<blockquote>
+<p>参考链接：</p>
+<p><a href="https://stackoverflow.com/questions/10818443/short-long-options-with-option-argument-is-this-some-sort-of-convention">bash - Short/long options with option argument - is this some sort of convention? - Stack Overflow</a></p>
+<p><a href="https://stackoverflow.com/questions/2160083/what-is-the-general-syntax-of-a-unix-shell-command">What is the general syntax of a Unix shell command? - Stack Overflow</a></p>
+</blockquote>
 <h2 id="实用技巧"><a class="header" href="#实用技巧">实用技巧</a></h2>
 <p>1. 自动补全</p>
 <p>在敲出 文件／目录／命令 的前几个字母之后，按下 <code>Tab</code> 键，如果输入的没有歧义，系统会自动补全。</p>
